@@ -23,7 +23,7 @@ const Pagination = ({ cardsPerPage, totalCards, changePage, currentPage }) => {
 							<a
 								onClick={() => changePage(number)}
 								className="page-link"
-								href="/">
+								href="#">
 								{" "}
 								{number}{" "}
 							</a>{" "}
