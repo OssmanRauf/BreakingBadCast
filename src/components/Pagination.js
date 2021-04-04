@@ -3,7 +3,6 @@ const Pagination = ({ cardsPerPage, totalCards, changePage, currentPage }) => {
 	const pageNumbers = [];
 	for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
 		pageNumbers.push(i);
-		console.log(currentPage);
 	}
 	return (
 		// <div className="pagination">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "axios";
 import Header from "./components/Header";
 import CharactersGrid from "./components/CharactersGrid";
 import Pagination from "./components/Pagination";
@@ -11,14 +11,31 @@ const App = () => {
 	const [query, setQuery] = useState("");
 	const cardsPerPage = 12;
 	useEffect(() => {
+		let source = Axios.CancelToken.source();
 		const apiUrl = `https://www.breakingbadapi.com/api/characters?name=${query}`;
 		const getData = async () => {
-			const resp = await axios.get(apiUrl);
-			setCharacters(resp.data);
-			setisLoading(false);
+			try {
+				const resp = await Axios.get(apiUrl, {
+					cancelToken: source.token,
+				});
+				console.log("got response");
+				setCharacters(resp.data);
+				setisLoading(false);
+				console.log(resp.data);
+			} catch (error) {
+				if (Axios.isCancel(error)) {
+					console.log("fetch cancelled");
+				} else {
+					throw error;
+				}
+			}
 		};
 		getData();
+		return () => {
+			source.cancel();
+		};
 	}, [query]);
+
 	const handleSearch = (e) => {
 		setQuery(e.target.value);
 	};
