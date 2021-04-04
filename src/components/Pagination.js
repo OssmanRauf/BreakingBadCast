@@ -1,18 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 const Pagination = ({ cardsPerPage, totalCards, changePage, currentPage }) => {
 	const pageNumbers = [];
-	console.log("im at pagination");
-	console.log(Math.ceil(totalCards / cardsPerPage), totalCards);
 	for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
-		console.log(i);
 		pageNumbers.push(i);
 	}
 	return (
 		// <div className="pagination">
 		<nav aria-label="..." className="pagination-nav">
 			<ul className="pagination">
+				{" "}
 				{pageNumbers.map((number) => {
-					console.log(number, "hh");
 					return (
 						<li
 							key={number}
@@ -22,13 +19,14 @@ const Pagination = ({ cardsPerPage, totalCards, changePage, currentPage }) => {
 							<a
 								onClick={() => changePage(number)}
 								className="page-link"
-								href="!#">
-								{number}
-							</a>
+								href="#">
+								{" "}
+								{number}{" "}
+							</a>{" "}
 						</li>
 					);
-				})}
-			</ul>
+				})}{" "}
+			</ul>{" "}
 		</nav>
 		// </div>
 	);

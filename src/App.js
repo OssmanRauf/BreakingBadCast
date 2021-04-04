@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from "axios";
 import Header from "./components/Header";
 import CharactersGrid from "./components/CharactersGrid";
 import Pagination from "./components/Pagination";
@@ -11,16 +11,33 @@ const App = () => {
 	const [query, setQuery] = useState("");
 	const cardsPerPage = 12;
 	useEffect(() => {
+		let source = Axios.CancelToken.source();
 		const apiUrl = `https://www.breakingbadapi.com/api/characters?name=${query}`;
 		const getData = async () => {
-			const resp = await axios.get(apiUrl);
-			setCharacters(resp.data);
-			setisLoading(false);
+			try {
+				const resp = await Axios.get(apiUrl, {
+					cancelToken: source.token,
+				});
+				console.log("got response");
+				setCharacters(resp.data);
+				setisLoading(false);
+				console.log(resp.data);
+			} catch (error) {
+				if (Axios.isCancel(error)) {
+					console.log("fetch cancelled");
+				} else {
+					throw error;
+				}
+			}
 		};
 		getData();
+		return () => {
+			source.cancel();
+		};
 	}, [query]);
-	const handleSearch = (value) => {
-		setQuery(value);
+
+	const handleSearch = (e) => {
+		setQuery(e.target.value);
 	};
 
 	// to get the index of the last card we multiply current page at the beginning is 1 and the limit per page thats 12
@@ -34,14 +51,14 @@ const App = () => {
 	const changePage = (pageNumber) => setCurrentPage(pageNumber);
 	return (
 		<div className="container">
-			<Header handleSearch={handleSearch} />
-			<CharactersGrid showSpinner={isLoading} data={currentCards} />
+			<Header handleSearch={handleSearch} />{" "}
+			<CharactersGrid showSpinner={isLoading} data={currentCards} />{" "}
 			<Pagination
 				cardsPerPage={cardsPerPage}
 				totalCards={characters.length}
 				changePage={changePage}
 				currentPage={currentPage}
-			/>
+			/>{" "}
 		</div>
 	);
 };
