@@ -1,11 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 const Pagination = ({ cardsPerPage, totalCards, changePage, currentPage }) => {
 	const pageNumbers = [];
-	console.log("im at pagination");
-	console.log(Math.ceil(totalCards / cardsPerPage), totalCards);
 	for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
-		console.log(i);
 		pageNumbers.push(i);
+		console.log(currentPage);
 	}
 	return (
 		// <div className="pagination">
@@ -13,7 +11,6 @@ const Pagination = ({ cardsPerPage, totalCards, changePage, currentPage }) => {
 			<ul className="pagination">
 				{" "}
 				{pageNumbers.map((number) => {
-					console.log(number, "hh");
 					return (
 						<li
 							key={number}

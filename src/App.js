@@ -19,8 +19,8 @@ const App = () => {
 		};
 		getData();
 	}, [query]);
-	const handleSearch = (value) => {
-		setQuery(value);
+	const handleSearch = (e) => {
+		setQuery(e.target.value);
 	};
 
 	// to get the index of the last card we multiply current page at the beginning is 1 and the limit per page thats 12
@@ -34,14 +34,14 @@ const App = () => {
 	const changePage = (pageNumber) => setCurrentPage(pageNumber);
 	return (
 		<div className="container">
-			<Header handleSearch={handleSearch} />
-			<CharactersGrid showSpinner={isLoading} data={currentCards} />
+			<Header handleSearch={handleSearch} />{" "}
+			<CharactersGrid showSpinner={isLoading} data={currentCards} />{" "}
 			<Pagination
 				cardsPerPage={cardsPerPage}
 				totalCards={characters.length}
 				changePage={changePage}
 				currentPage={currentPage}
-			/>
+			/>{" "}
 		</div>
 	);
 };

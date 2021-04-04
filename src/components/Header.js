@@ -7,9 +7,7 @@ const Header = ({ handleSearch }) => {
 				<img src={logo} alt="logo" />
 			</div>
 			<input
-				onChange={(e) => {
-					handleSearch(e.target.value);
-				}}
+				onChange={handleSearch}
 				className="form-control search"
 				placeholder="Type to search..."></input>
 		</>
