@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/BreakingBadCast/static/css/main.e609152c.chunk.css",
+    "main.css": "/BreakingBadCast/static/css/main.8d1e8893.chunk.css",
     "main.js": "/BreakingBadCast/static/js/main.dccfc995.chunk.js",
     "main.js.map": "/BreakingBadCast/static/js/main.dccfc995.chunk.js.map",
     "runtime-main.js": "/BreakingBadCast/static/js/runtime-main.93a1c62d.js",
@@ -12,7 +12,7 @@
     "static/js/3.97c354f6.chunk.js.map": "/BreakingBadCast/static/js/3.97c354f6.chunk.js.map",
     "index.html": "/BreakingBadCast/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/BreakingBadCast/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.e609152c.chunk.css.map": "/BreakingBadCast/static/css/main.e609152c.chunk.css.map",
+    "static/css/main.8d1e8893.chunk.css.map": "/BreakingBadCast/static/css/main.8d1e8893.chunk.css.map",
     "static/js/2.180e5b2f.chunk.js.LICENSE.txt": "/BreakingBadCast/static/js/2.180e5b2f.chunk.js.LICENSE.txt",
     "static/media/index.css": "/BreakingBadCast/static/media/bg.085908ea.jpg",
     "static/media/logo.e6ecab44.png": "/BreakingBadCast/static/media/logo.e6ecab44.png",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.93a1c62d.js",
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.180e5b2f.chunk.js",
-    "static/css/main.e609152c.chunk.css",
+    "static/css/main.8d1e8893.chunk.css",
     "static/js/main.dccfc995.chunk.js"
   ]
 }
