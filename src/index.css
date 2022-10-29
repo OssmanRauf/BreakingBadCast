@@ -122,10 +122,13 @@ body {
 
 @media (max-width: 500px) {
     .cards {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .card {
-        width: 100%;
+        width: 200px;
     }
     .card img {
         width: 100%;
